@@ -57,6 +57,8 @@ async def websocket_endpoint(websocket: WebSocket):
 
         chat_response = init_chat(data["api_key"], messages)
 
+        print(chat_response)
+
         bot_msg = ""
         for delta in chat_response:
             if "content" in delta:
@@ -67,6 +69,9 @@ async def websocket_endpoint(websocket: WebSocket):
                 })
 
     except Exception as e:
+        await websocket.send_json({
+            "type": "error",
+        })
         logger.error(e)
         return
 
