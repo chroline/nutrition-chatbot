@@ -13,7 +13,7 @@ processed_links = []
 
 
 def generate_index():
-    for index in range(1, 2):
+    for index in range(1, 24):
         print(f"Processing page {index}...")
         links = get_all_links(index)
         for link in links:
