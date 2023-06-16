@@ -11,6 +11,9 @@ sentence-transformers = "*"
 faiss-cpu = "*"
 uvicorn = "*"
 urllib3 = "<2.0"
+html2text = "*"
+bs4 = "*"
+requests = "*"
 
 [dev-packages]
 
