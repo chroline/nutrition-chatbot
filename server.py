@@ -30,7 +30,8 @@ async def websocket_endpoint(websocket: WebSocket):
                 bot_msg=history[1]["msg"] if len(history) != 0 else ""
             )
 
-            chat_response = init_chat([{"role": "system", "content": system_msg}, {"role": "user", "content": query}])
+            chat_response = init_chat(data["api_key"],
+                                      [{"role": "system", "content": system_msg}, {"role": "user", "content": query}])
 
             bot_msg = ""
             for delta in chat_response:
@@ -55,9 +56,9 @@ async def websocket_endpoint(websocket: WebSocket):
             messages.append({"role": "assistant", "content": history[1]["msg"]})
         messages.append({"role": "user", "content": data["query"]})
 
-        chat_response = init_chat(data["api_key"], messages)
+        print(messages)
 
-        print(chat_response)
+        chat_response = init_chat(data["api_key"], messages)
 
         bot_msg = ""
         for delta in chat_response:
