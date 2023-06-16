@@ -1,7 +1,7 @@
 import numpy as np
 
 from bot.data import dump, faiss_index
-from store_generator.generate_embedding import generate_embedding
+from util.generate_embedding import generate_embedding
 
 
 def retrieve_related_docs(query, k=3):
